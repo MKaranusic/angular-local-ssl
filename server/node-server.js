@@ -38,7 +38,7 @@ exports.getHttpsCredentials = () => {
 };
 exports.configureExpress = () => {
     const server = express();
-    const distFolder = path_1.join(process.cwd() + '/dist/yourProject');
+    const distFolder = path_1.join(process.cwd() + '/dist/DEFAULTDIRECTORY');
     const indexHtml = path_1.join('index.html');
     server.use(express.static(distFolder));
     server.get('/*', (_request, response) => {
