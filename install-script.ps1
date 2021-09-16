@@ -13,8 +13,8 @@ if (Check-IsElevated -eq 1) {
     #install localhost ssl cert
     certutil -addstore Root .\server\sslcert\localhost.crt
 
-    $angularRootDir = Read-Host -Prompt 'Path to root dir of angular project'
-    $serverDir = "$((Get-Item .).FullName)\server\"
+    $angularRootDir = (Read-Host -Prompt 'Path to root dir of angular project (without trailing backslash)') + '\'
+    $serverDir = "$(split-path -parent $MyInvocation.MyCommand.Definition)\server\"
 
     Copy-Item -Path $serverDir -Destination $angularRootDir -Recurse
     
